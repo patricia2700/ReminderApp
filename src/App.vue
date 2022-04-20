@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <HeaderVal title="Task Tracker" />
-    <Tasks :tasks="tasks"/>
+    <Tasks
+      @delete-task="deleteTask"
+      @reminder="toggleReminder"
+      :tasks="tasks"
+    />
   </div>
 </template>
 
@@ -13,12 +17,25 @@ export default {
   name: "App",
   components: {
     HeaderVal,
-    Tasks
+    Tasks,
   },
   data() {
     return {
       tasks: [],
     };
+  },
+  methods: {
+    deleteTask(id) {
+      //console.log('task' , id)
+      if (confirm("are you sure?")) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
+    },
+    toggleReminder(id) {
+      this.tasks = this.tasks.map((task) => task.id == id 
+      ? {...task,reminder: !task.reminder } : task
+      )
+    },
   },
   created() {
     this.tasks = [

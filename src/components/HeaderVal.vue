@@ -4,8 +4,7 @@
             {{title}}
         </h1>
         <Button text="Add Task" color="blue" />
-        <Button text="Update Task" color="green" />
-        <Button text="Update Task" color="red" />
+        <Button text="Update Task" color="blue" />
     </header>
 </template>
 
