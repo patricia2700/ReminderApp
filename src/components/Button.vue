@@ -16,7 +16,7 @@ export default {
     },
     methods: {
       onClick() {
-          console.log("uiuwii")
+         this.$emit('btn-click')
       } 
     },
 }
